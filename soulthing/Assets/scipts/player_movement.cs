@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
-     private float horizontal;
+    private float horizontal;
     private float maxplayerSpeed = 10f;
     private float acellrate = 5;
     private float movment;
     private float speeddif;
     private float speeddirection;
     public Rigidbody2D rb;
+    public float jump;
+
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
+
     // Start is called before the first frame update
        // Update is called once per frame
     void Update()
     {
+
         horizontal = Input.GetAxisRaw("Horizontal");
-        Debug.Log(horizontal);
-        if(Input.GetButtonUp("Jump"))
+
+        if(Input.GetButtonDown("w") && IsGrounded())
         {
-            rb.AddForce(new Vector2(rb.velocity.x, rb.velocity.y + 10));
+            rb.AddForce(new Vector2(rb.velocity.x,jump)); 
         }
+        
     }
     void FixedUpdate()
     {
@@ -30,5 +37,10 @@ public class player_movement : MonoBehaviour
 
         rb.AddForce(new Vector2(movment, 0));
     }
+        private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
 }
 
+    
