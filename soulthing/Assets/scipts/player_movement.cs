@@ -29,12 +29,13 @@ public class player_movement : MonoBehaviour
         }
         if(!IsGrounded())
         {
-            rb.drag = 4f;
-            rb.gravityScale = 5;
+            rb.drag = 3f;
+            rb.gravityScale = 3;
         }
         else
         {
             rb.drag = 0;
+            rb.gravityScale = 2;
         }
         
     }
@@ -51,5 +52,3 @@ public class player_movement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
 }
-
-    
