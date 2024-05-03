@@ -27,6 +27,15 @@ public class player_movement : MonoBehaviour
         {
             rb.AddForce(new Vector2(rb.velocity.x,jump)); 
         }
+        if(!IsGrounded())
+        {
+            rb.drag = 4f;
+            rb.gravityScale = 5;
+        }
+        else
+        {
+            rb.drag = 0;
+        }
         
     }
     void FixedUpdate()
@@ -39,7 +48,7 @@ public class player_movement : MonoBehaviour
     }
         private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
 }
 
