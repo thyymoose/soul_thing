@@ -6,11 +6,12 @@ public class whip_weapon : MonoBehaviour
 {
     public AudioSource src;
     public AudioClip sfx1;
-    private float attackwindow = 2;
-    private bool attaked = false;
+    private bool canattak = true;
+    private string currentattack = "whip1";
     public Transform whip;
     public Animator ainm;
     public LayerMask enemy;
+    public Vector3 fakepow;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,25 +21,35 @@ public class whip_weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!canattak)
+        return;
         if(Input.GetButtonDown("Fire1"))
         {
             ainm.SetBool("whip1",true);
+            canattak = false;
         }
+
     
     }
-    public void spank()
+    public void hit1()
     {
-        var hit = Physics2D.OverlapCircle(whip.position, 3, enemy);
-        if(hit != null)
-        {
-            Debug.Log(hit);
-        }
-        Debug.Log("suck");
+        var hit =Physics2D.OverlapBox(whip.position,new Vector2(3,0.5f),0,enemy);
+            if(hit != null)
+            {
+                Debug.Log(hit);
+            }
         src.clip = sfx1;
         src.Play();
+        currentattack = "whip1";
     }
-    public void atackonefinish()
+    public void atackfinish()
     {
-        ainm.SetBool("whip1",false);
+        ainm.SetBool(currentattack,false);
+        canattak = true;
+    }
+    public void OnDrawGizmos()
+    {
+    Gizmos.DrawCube(whip.position, fakepow);
+
     }
 }

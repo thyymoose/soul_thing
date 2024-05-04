@@ -754,11 +754,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   src: {fileID: 1659884330}
   sfx1: {fileID: 8300000, guid: 3c403b3998e811642ad245ad6f027e3b, type: 3}
+  sfx2: {fileID: 8300000, guid: 05e18cd54f43a034eb9cd192f65fe67f, type: 3}
   whip: {fileID: 1789079165}
   ainm: {fileID: 1154096994}
   enemy:
     serializedVersion: 2
     m_Bits: 128
+  pow: {x: 0, y: 0}
+  fakepow: {x: 0, y: 0, z: 0}
 --- !u!1 &1659884329
 GameObject:
   m_ObjectHideFlags: 0
