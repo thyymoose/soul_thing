@@ -12,6 +12,7 @@ public class player_movement : MonoBehaviour
     private float speeddirection;
     public Rigidbody2D rb;
     public float jump;
+    
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -49,6 +50,7 @@ public class player_movement : MonoBehaviour
     }
         private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+       return Physics2D.BoxCast(groundCheck.position, new Vector2(0.57f,0.01f),0,new Vector2(1,-1),0.5f,groundLayer);
     }
+    
 }
