@@ -7,11 +7,13 @@ public class whip_weapon : MonoBehaviour
     public AudioSource src;
     public AudioClip sfx1;
     private bool canattak = true;
-    private string currentattack = "whip1";
+    private int currentattack = 1;
     public Transform whip;
     public Animator ainm;
     public LayerMask enemy;
-    public Vector3 fakepow;
+    Coroutine combotime;
+
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +23,16 @@ public class whip_weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(currentattack);
         if(!canattak)
-        return;
+        {
+            return;
+        }
         if(Input.GetButtonDown("Fire1"))
         {
-            ainm.SetBool("whip1",true);
+            ainm.SetFloat("attackcounter",currentattack);
             canattak = false;
         }
-
-    
     }
     public void hit1()
     {
@@ -40,16 +43,44 @@ public class whip_weapon : MonoBehaviour
             }
         src.clip = sfx1;
         src.Play();
-        currentattack = "whip1";
+       combotime = StartCoroutine(combo());
+    }
+    public void hit2()
+    {
+        var hit =Physics2D.OverlapBox(whip.position,new Vector2(3,0.5f),0,enemy);
+            if(hit != null)
+            {
+                Debug.Log(hit);
+            }
+        src.clip = sfx1;
+        src.Play();
+        StopAllCoroutines();
+        combotime = StartCoroutine(combo());
+    }
+    public void hit3()
+    {
+        var hit =Physics2D.OverlapBox(whip.position,new Vector2(3,0.5f),0,enemy);
+            if(hit != null)
+            {
+                Debug.Log(hit);
+            }
+        src.clip = sfx1;
+        src.Play();
+        StopAllCoroutines(); 
+       currentattack = 1;
     }
     public void atackfinish()
     {
-        ainm.SetBool(currentattack,false);
-        canattak = true;
+        ainm.SetFloat("attackcounter",0);
+        canattak = true;        
     }
-    public void OnDrawGizmos()
-    {
-    Gizmos.DrawCube(whip.position, fakepow);
+   IEnumerator combo()
+   {
+     yield return currentattack = currentattack + 1;
+     yield return new WaitForSeconds(1.5f);
+     yield return currentattack = 1;
+   }
 
-    }
+
+    
 }
