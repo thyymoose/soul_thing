@@ -12,7 +12,7 @@ public class player_movement : MonoBehaviour
     private float speeddirection;
     public Rigidbody2D rb;
     public float jump;
-    
+    private bool isFacingRight = true;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -28,10 +28,11 @@ public class player_movement : MonoBehaviour
         {
             rb.AddForce(new Vector2(rb.velocity.x,jump)); 
         }
+
         if(!IsGrounded())
         {
             rb.drag = 3f;
-            rb.gravityScale = 3;
+            rb.gravityScale = 4;
         }
         else
         {
@@ -39,6 +40,7 @@ public class player_movement : MonoBehaviour
             rb.gravityScale = 2;
         }
         
+        Flip();
     }
     void FixedUpdate()
     {
@@ -50,7 +52,17 @@ public class player_movement : MonoBehaviour
     }
         private bool IsGrounded()
     {
-       return Physics2D.BoxCast(groundCheck.position, new Vector2(0.57f,0.01f),0,new Vector2(1,-1),0.5f,groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
-    
+
+        private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+    }
 }
