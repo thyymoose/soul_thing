@@ -23,6 +23,7 @@ public class whip_weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Debug.Log(currentattack);
         if(!canattak)
         {
@@ -39,6 +40,8 @@ public class whip_weapon : MonoBehaviour
         var hit =Physics2D.OverlapBox(whip.position,new Vector2(3,0.5f),0,enemy);
             if(hit != null)
             {
+                Ememy ememy = hit.GetComponent<Ememy>();
+                ememy.TakeDamage(10);
                 Debug.Log(hit);
             }
         src.clip = sfx1;
@@ -50,6 +53,8 @@ public class whip_weapon : MonoBehaviour
         var hit =Physics2D.OverlapBox(whip.position,new Vector2(3,0.5f),0,enemy);
             if(hit != null)
             {
+                Ememy ememy = hit.GetComponent<Ememy>();
+                ememy.TakeDamage(0);
                 Debug.Log(hit);
             }
         src.clip = sfx1;
@@ -62,12 +67,15 @@ public class whip_weapon : MonoBehaviour
         var hit =Physics2D.OverlapBox(whip.position,new Vector2(3,0.5f),0,enemy);
             if(hit != null)
             {
+                Ememy ememy = hit.GetComponent<Ememy>();
+                ememy.TakeDamage(100);
                 Debug.Log(hit);
             }
         src.clip = sfx1;
         src.Play();
         StopAllCoroutines(); 
-       currentattack = 1;
+        combotime = StartCoroutine(combo());
+        currentattack = 1;
     }
     public void atackfinish()
     {

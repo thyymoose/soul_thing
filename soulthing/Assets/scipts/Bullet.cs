@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D hitInfo) 
     {
+        Wall wall = hitInfo.GetComponent<Wall>();
+
         Ememy ememy = hitInfo.GetComponent<Ememy>();
         if (ememy != null)
         {
@@ -23,6 +25,7 @@ public class Bullet : MonoBehaviour
 
         Destroy(gameObject);
     }
+
 
 
     // Update is called once per frame

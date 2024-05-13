@@ -9,6 +9,7 @@ public class GunScript : MonoBehaviour
     public Transform GUN;
     public GameObject bulletPrefab;
     Vector2 direction;
+    public float Ammo = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,17 @@ public class GunScript : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
-            Shoot();
+            if (Ammo < 0)
+            {
+
+            }
+
+            else
+            {
+                Shoot();
+                Ammo = Ammo - 1;
+            }
+           
 
         }
 
@@ -36,6 +47,7 @@ public class GunScript : MonoBehaviour
     {
         //shooting
         Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+
     }
 
     void FaceMouse()
