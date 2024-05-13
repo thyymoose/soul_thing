@@ -852,7 +852,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 876424667}
-  - component: {fileID: 876424668}
   m_Layer: 0
   m_Name: firepoint
   m_TagString: Untagged
@@ -875,18 +874,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1389060969}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &876424668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876424666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c1a00d594ef79f42a36214995898824, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &903820377
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +884,6 @@ GameObject:
   m_Component:
   - component: {fileID: 903820380}
   - component: {fileID: 903820379}
-  - component: {fileID: 903820378}
   - component: {fileID: 903820381}
   m_Layer: 8
   m_Name: wall
@@ -906,18 +892,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &903820378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903820377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2fb0ec4a5a48a488d351ee013a7b91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &903820379
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1593,7 +1567,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1503821837}
   - component: {fileID: 1503821836}
-  - component: {fileID: 1503821835}
   - component: {fileID: 1503821838}
   m_Layer: 8
   m_Name: wall2
@@ -1602,18 +1575,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1503821835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503821834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2fb0ec4a5a48a488d351ee013a7b91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1503821836
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1948,7 +1909,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1799330115}
   - component: {fileID: 1799330114}
-  - component: {fileID: 1799330113}
   - component: {fileID: 1799330116}
   m_Layer: 8
   m_Name: wall1
@@ -1957,18 +1917,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1799330113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799330112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2fb0ec4a5a48a488d351ee013a7b91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1799330114
 SpriteRenderer:
   m_ObjectHideFlags: 0

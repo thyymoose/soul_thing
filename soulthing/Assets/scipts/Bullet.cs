@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = 20f;
     public Rigidbody2D rb;
+    public LayerMask walls;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +16,21 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D hitInfo) 
     {
-        Wall wall = hitInfo.GetComponent<Wall>();
-
         Ememy ememy = hitInfo.GetComponent<Ememy>();
-        if (ememy != null)
+        if(hitInfo.gameObject.layer == 7)
         {
-            ememy.TakeDamage(10);
+             if (ememy != null)
+             {
+                ememy.TakeDamage(10);
+                Destroy(gameObject);  
+             }  
+        }
+        else
+        {
+            Destroy(gameObject); 
         }
 
-        Destroy(gameObject);
+       
     }
 
 

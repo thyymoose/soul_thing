@@ -26,17 +26,11 @@ public class GunScript : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
-            if (Ammo < 0)
-            {
-
-            }
-
-            else
+            if (Ammo > 0)
             {
                 Shoot();
                 Ammo = Ammo - 1;
-            }
-           
+            }          
 
         }
 

@@ -163,3 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   rb: {fileID: 3047889408057407448}
+  walls:
+    serializedVersion: 2
+    m_Bits: 128
