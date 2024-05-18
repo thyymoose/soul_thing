@@ -128,6 +128,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4335937183354991212}
   lassoPos: {fileID: 4476557012527122950}
+  enemy:
+    serializedVersion: 2
+    m_Bits: 128
+  floor:
+    serializedVersion: 2
+    m_Bits: 320
 --- !u!61 &8109420037416393822
 BoxCollider2D:
   m_ObjectHideFlags: 0
