@@ -711,6 +711,7 @@ GameObject:
   - component: {fileID: 813921719}
   - component: {fileID: 813921718}
   - component: {fileID: 813921721}
+  - component: {fileID: 813921722}
   m_Layer: 7
   m_Name: the oops
   m_TagString: Untagged
@@ -843,6 +844,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  rb: {fileID: 813921722}
+--- !u!50 &813921722
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813921717}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &876424666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,6 +1394,7 @@ MonoBehaviour:
   lasso: {fileID: 4052852175515452469, guid: 3fd45bb11f05115458cb943da5e786ce, type: 3}
   firepoint: {fileID: 1440921003}
   lassoOut: 0
+  lassoOn: 0
 --- !u!1 &1270555860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1580,7 @@ Transform:
   m_GameObject: {fileID: 1440921002}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.29, y: 0.058, z: 0}
+  m_LocalPosition: {x: 0.35, y: 0.058, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

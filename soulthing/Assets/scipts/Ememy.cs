@@ -6,6 +6,7 @@ public class Ememy : MonoBehaviour
 {
 
     public int health = 100;
+    public Rigidbody2D rb;
 
     public void TakeDamage (int damage)
     {
@@ -15,6 +16,11 @@ public class Ememy : MonoBehaviour
         {
             Die();
         }
+    }
+    public void pull(float direction)
+    {
+       
+        rb.AddForce(new Vector2(10*direction,10),ForceMode2D.Impulse);
     }
     
     void Die()

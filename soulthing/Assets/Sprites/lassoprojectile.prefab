@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8109420037416393822}
   m_Layer: 0
   m_Name: lassoprojectile
-  m_TagString: Untagged
+  m_TagString: lasso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +134,11 @@ MonoBehaviour:
   floor:
     serializedVersion: 2
     m_Bits: 320
+  player:
+    serializedVersion: 2
+    m_Bits: 0
+  canlasso: 1
+  dicpic: {fileID: 6410985271978997541}
 --- !u!61 &8109420037416393822
 BoxCollider2D:
   m_ObjectHideFlags: 0
