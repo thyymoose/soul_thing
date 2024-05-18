@@ -24,7 +24,6 @@ public class whip_weapon : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(currentattack);
         if(!canattak)
         {
             return;
