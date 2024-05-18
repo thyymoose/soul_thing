@@ -23,6 +23,7 @@ public class GunScript : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = mousePos -  (Vector2)GUN.position;
         FaceMouse();
+       
 
         if (Input.GetButtonDown("Fire2"))
         {

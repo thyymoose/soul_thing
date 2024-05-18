@@ -1127,7 +1127,8 @@ GameObject:
   - component: {fileID: 1154096994}
   - component: {fileID: 1154096995}
   - component: {fileID: 1154096996}
-  m_Layer: 0
+  - component: {fileID: 1154096997}
+  m_Layer: 3
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1247,6 +1248,7 @@ Transform:
   - {fileID: 776105980}
   - {fileID: 1008414360}
   - {fileID: 1491712272}
+  - {fileID: 1440921003}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1154096993
@@ -1347,6 +1349,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whip: {fileID: 1154096995}
+  lasso: {fileID: 1154096997}
+--- !u!114 &1154096997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154096988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758252a23ec1dcf4eac5dfe9caff7361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lasso: {fileID: 4052852175515452469, guid: 3fd45bb11f05115458cb943da5e786ce, type: 3}
+  firepoint: {fileID: 1440921003}
 --- !u!1 &1270555860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1524,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1440921002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1440921003}
+  m_Layer: 3
+  m_Name: lasso_firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1440921003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440921002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.29, y: 0.058, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1154096992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491712271
 GameObject:
   m_ObjectHideFlags: 0
