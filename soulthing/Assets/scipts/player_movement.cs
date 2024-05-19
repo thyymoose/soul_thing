@@ -11,6 +11,7 @@ public class player_movement : MonoBehaviour
     private float speeddif;
     private float speeddirection;
     public Rigidbody2D rb;
+    Animator animator;
     public float jump;
     private bool isFacingRight = true;
 
@@ -19,6 +20,11 @@ public class player_movement : MonoBehaviour
 
     // Start is called before the first frame update
        // Update is called once per frame
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
 
@@ -48,6 +54,7 @@ public class player_movement : MonoBehaviour
         speeddif = speeddirection - rb.velocity.x;
         movment = speeddif * acellrate;
 
+        animator.SetFloat("Xvelocity", Mathf.Abs(rb.velocity.x));
         rb.AddForce(new Vector2(movment, 0));
     }
         private bool IsGrounded()
