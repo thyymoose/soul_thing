@@ -32,6 +32,14 @@ public class lasso_weapon : MonoBehaviour
             
         }        
     }
+    public void fuckinpulled()
+    {
+        GameObject lasso = GameObject.FindGameObjectWithTag("lasso");
+        lasso_project l = lasso.GetComponent<lasso_project>();
+        lassoOn = false;
+        l.canlasso = false;
+        l.pull();
+    }
     
 
 }

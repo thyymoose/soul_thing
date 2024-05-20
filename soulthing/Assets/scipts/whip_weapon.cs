@@ -73,7 +73,6 @@ public class whip_weapon : MonoBehaviour
         src.clip = sfx1;
         src.Play();
         StopAllCoroutines(); 
-        combotime = StartCoroutine(combo());
         currentattack = 1;
     }
     public void atackfinish()

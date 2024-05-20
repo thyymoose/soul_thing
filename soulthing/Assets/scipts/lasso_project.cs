@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class lasso_project : MonoBehaviour
 {
+    public LineRenderer lr;
+    public Transform linepoint1;
     public Rigidbody2D rb;
     public Transform lassoPos;
     public LayerMask enemy;
@@ -22,6 +24,10 @@ public class lasso_project : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject manger = GameObject.Find("player");
+        lasso_weapon lasso = manger.GetComponent<lasso_weapon>();
+        lr.SetPosition(0,new Vector3(linepoint1.position.x,linepoint1.position.y,0));
+        lr.SetPosition(1,new Vector3(lasso.firepoint.position.x,lasso.firepoint.position.y,0));
         if(canlasso)
         {
             hitdetec();
@@ -77,6 +83,7 @@ public class lasso_project : MonoBehaviour
                   
             }
         dicpic.enabled = false;
+        lr.enabled = false;
         yield return new WaitForSeconds(.5f);
         fuckinWork();
         Destroy(gameObject);

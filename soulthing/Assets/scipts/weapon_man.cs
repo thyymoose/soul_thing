@@ -11,6 +11,8 @@ public class weapon_man : MonoBehaviour
     {
         whip.enabled = false;
         lasso.enabled = false;
+        GameObject manger = GameObject.Find("player");
+        lasso_weapon lassofuck = manger.GetComponent<lasso_weapon>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,9 @@ public class weapon_man : MonoBehaviour
         {
             whip.enabled = true;
             lasso.enabled = false;
+            GameObject manger = GameObject.Find("player");
+        lasso_weapon lassofuck = manger.GetComponent<lasso_weapon>();
+            lassofuck.fuckinpulled();
         }
         if(Input.GetButtonDown("2"))
         {
@@ -30,11 +35,17 @@ public class weapon_man : MonoBehaviour
         {
             whip.enabled = false;
             lasso.enabled = false;
+            GameObject manger = GameObject.Find("player");
+        lasso_weapon lassofuck = manger.GetComponent<lasso_weapon>();
+            lassofuck.fuckinpulled();
         }
         if(Input.GetButtonDown("4"))
         {
             whip.enabled = false;
             lasso.enabled = false;
+            GameObject manger = GameObject.Find("player");
+        lasso_weapon lassofuck = manger.GetComponent<lasso_weapon>();
+            lassofuck.fuckinpulled();
         }
     }
 }
