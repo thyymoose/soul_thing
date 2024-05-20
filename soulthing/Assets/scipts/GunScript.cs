@@ -12,6 +12,7 @@ public class GunScript : MonoBehaviour
     Vector2 direction;
     public float Ammo = 10f;
     private bool isFacingRight = true;
+    private float rotationZ;
     player_movement myPlayer;
     public GameObject player;
 
@@ -21,17 +22,15 @@ public class GunScript : MonoBehaviour
     {
  
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-
-    if (!isFacingRight)
-    {
-    
-    }
- 
         difference.Normalize();
- 
-        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-    
- 
+    if (isFacingRight)
+    {
+         rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;   
+    }
+    else
+    {
+        rotationZ = Mathf.Atan2(-difference.y, -difference.x) * Mathf.Rad2Deg;
+    }
         if (rotationZ > -90 && rotationZ < 90)
         {
             transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
@@ -85,7 +84,6 @@ public class GunScript : MonoBehaviour
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
-            Debug.Log("work");
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
