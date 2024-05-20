@@ -17,10 +17,10 @@ public class Ememy : MonoBehaviour
             Die();
         }
     }
-    public void pull(float direction)
+    public void pull(float x, float y)
     {
        
-        rb.AddForce(new Vector2(10*direction,10),ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(x * 2,y * 2),ForceMode2D.Impulse);
     }
     
     void Die()

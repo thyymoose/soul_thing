@@ -65,23 +65,15 @@ public class lasso_project : MonoBehaviour
         GameObject manger = GameObject.Find("player");
         lasso_weapon lasso = manger.GetComponent<lasso_weapon>();
          lasso.lassoOn = false;
-        cooldown = StartCoroutine(endattack());
+        cooldown = StartCoroutine(endattack(lasso));
     }
-    IEnumerator endattack()
+    IEnumerator endattack(lasso_weapon lasso)
     {
         var hitInfo =Physics2D.OverlapBox(lassoPos.position,new Vector2(0.5f,0.5f),0,enemy);
         if (hitInfo != null)
             {
                 Ememy ops = hitInfo.GetComponent<Ememy>();
-                if(lassoPos.position.x > hitInfo.gameObject.transform.position.x)
-                {
-                  direction = 1;
-                }
-                else
-                {
-                    direction = -1;
-                }
-                ops.pull(direction);
+                ops.pull(lasso.firepoint.position.x-hitInfo.gameObject.transform.position.x,lasso.firepoint.position.y-hitInfo.gameObject.transform.position.y);
                   
             }
         dicpic.enabled = false;
