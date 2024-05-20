@@ -13,7 +13,14 @@ public class player_movement : MonoBehaviour
     public Rigidbody2D rb;
     Animator animator;
     public float jump;
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
+
+    public float KBforce;
+    public float KBCounter;
+    public float KBTotalTime;
+
+    public bool Knockfromright;
+
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
