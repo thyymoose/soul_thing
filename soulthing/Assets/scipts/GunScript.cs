@@ -15,6 +15,7 @@ public class GunScript : MonoBehaviour
     private float rotationZ;
     player_movement myPlayer;
     public GameObject player;
+    public Rigidbody2D playerrb;
 
  
 
@@ -40,10 +41,9 @@ public class GunScript : MonoBehaviour
     void Start()
     {
         myPlayer = myPlayer.GetComponent<player_movement>(); 
-    
+
     }
 
-        
     }
     // Update is called once per frame
     void Update()
@@ -72,7 +72,9 @@ public class GunScript : MonoBehaviour
     {
         //shooting
         Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-
+        
+        playerrb.AddForce(new Vector2(500*Mathf.Sin(rotationZ), 500*Mathf.Cos(rotationZ)));
+        
     }
 
     void FaceMouse()
