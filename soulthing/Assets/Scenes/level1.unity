@@ -1027,6 +1027,7 @@ GameObject:
   - component: {fileID: 1154096995}
   - component: {fileID: 1154096996}
   - component: {fileID: 1154096997}
+  - component: {fileID: 1154096998}
   m_Layer: 3
   m_Name: player
   m_TagString: Untagged
@@ -1270,6 +1271,22 @@ MonoBehaviour:
   firepoint: {fileID: 1440921003}
   lassoOut: 0
   lassoOn: 0
+--- !u!114 &1154096998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154096988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879ee1e4e5edbc942bd91e566e61cf3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullpoint: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1163295435
 GameObject:
   m_ObjectHideFlags: 0
