@@ -5,10 +5,10 @@ using UnityEngine;
 public class Ememy : MonoBehaviour
 {
 
-    public int health = 100;
+    public float health = 100;
     public Rigidbody2D rb;
 
-    public void TakeDamage (int damage)
+    public void TakeDamage (float damage)
     {
         health -= damage;
 
