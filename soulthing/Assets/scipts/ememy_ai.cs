@@ -16,6 +16,7 @@ public class ememy_ai : MonoBehaviour
     private bool runaway = false;
     private bool hitstopped = false;
     Coroutine enemyAI;
+    Coroutine hittest;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +27,12 @@ public class ememy_ai : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-     player_find();
+        
+      if(!hitstopped)
+      {
+        player_find();
+      }
+     
     }
     void player_find()
     {
@@ -40,10 +45,6 @@ public class ememy_ai : MonoBehaviour
         else
         {
             move = -1;
-        }
-        if(!hitstopped)
-        {
-            return;
         }
         if(!attacked)
         {
@@ -106,12 +107,12 @@ public class ememy_ai : MonoBehaviour
     {
         rb.velocity = new Vector2(0,0);
         hitstopped = true;
-        StopAllCoroutines();
-        enemyAI = StartCoroutine(hit());
+        StopCoroutine(hit());
+        hittest = StartCoroutine(hit());
     }
     IEnumerator hit()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
         hitstopped = false;
     }
 }
