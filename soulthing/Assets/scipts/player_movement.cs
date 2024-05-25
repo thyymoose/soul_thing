@@ -57,7 +57,7 @@ public class player_movement : MonoBehaviour
     }
     void FixedUpdate()
     {
-         speeddirection = maxplayerSpeed * horizontal;
+        speeddirection = maxplayerSpeed * horizontal;
         speeddif = speeddirection - rb.velocity.x;
         movment = speeddif * acellrate;
 

@@ -9,9 +9,12 @@ public class ememy_ai : MonoBehaviour
     private Transform playerpos;
     private float distnaceX = 0;
     private float distnaceY = 0;
-    private int move = 0; 
+    private int move = 0;
+    private float maxplayerSpeed = 10f;
+    private float acellrate = 5; 
     private bool attacked = false;
     private bool runaway = false;
+    private bool hitstopped = false;
     Coroutine enemyAI;
     // Start is called before the first frame update
     void Start()
@@ -38,26 +41,39 @@ public class ememy_ai : MonoBehaviour
         {
             move = -1;
         }
+        if(!hitstopped)
+        {
+            return;
+        }
         if(!attacked)
         {
-            if(distnaceX * move > 3)
+            if(distnaceX * move > 5)
             {
                moveEmemy(-move);
             }
-            if(distnaceX * move < 2 && transform.position. y < distnaceY)
+            if(distnaceX * move < 2.5f && transform.position. y < distnaceY)
             {
-                jumpStrike();
+                var number = Random.Range(0,11);
+                if(number >= 5)
+                {
+                    jumpStrike();
+                }
+                else
+                {
+                   ramStrike(); 
+                }
+                
                 attacked = true;
                 enemyAI = StartCoroutine(enemyWait());
             }
         }
         if(attacked && runaway)
         {
-            if(distnaceX * move < 3)
+            if(distnaceX * move < 5)
             {
              moveEmemy(move);
             }
-            if(distnaceX * move > 3)
+            if(distnaceX * move > 5)
             {
                 Debug.Log("reset");
                 attacked = false;
@@ -73,10 +89,29 @@ public class ememy_ai : MonoBehaviour
     }
     void moveEmemy(float move)
     {
-         rb.AddForce(new Vector2(3 * move, 0)); 
+        var speeddirection = maxplayerSpeed * move;
+        var speeddif = speeddirection - rb.velocity.x;
+        var movment = speeddif * acellrate;
+         rb.AddForce(new Vector2(movment, 0)); 
     }
     void jumpStrike()
     {
         rb.AddForce(new Vector2 (5 + distnaceX * -move, 5 + distnaceY), ForceMode2D.Impulse);
+    }
+    void ramStrike()
+    {
+        rb.AddForce(new Vector2 ((10 + distnaceX) * -move,0), ForceMode2D.Impulse);
+    }
+    public void hitstop()
+    {
+        rb.velocity = new Vector2(0,0);
+        hitstopped = true;
+        StopAllCoroutines();
+        enemyAI = StartCoroutine(hit());
+    }
+    IEnumerator hit()
+    {
+        yield return new WaitForSeconds(.5f);
+        hitstopped = false;
     }
 }

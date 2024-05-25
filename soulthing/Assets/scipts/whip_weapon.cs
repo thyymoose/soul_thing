@@ -41,6 +41,8 @@ public class whip_weapon : MonoBehaviour
             {
                 Ememy ememy = hit.GetComponent<Ememy>();
                 ememy.TakeDamage(10);
+                ememy_ai ememyia = hit.GetComponent<ememy_ai>();
+                ememyia.hitstop();
                 Debug.Log(hit);
             }
         src.clip = sfx1;
@@ -54,6 +56,8 @@ public class whip_weapon : MonoBehaviour
             {
                 Ememy ememy = hit.GetComponent<Ememy>();
                 ememy.TakeDamage(0);
+                ememy_ai ememyia = hit.GetComponent<ememy_ai>();
+                ememyia.hitstop();
                 Debug.Log(hit);
             }
         src.clip = sfx1;
@@ -68,6 +72,8 @@ public class whip_weapon : MonoBehaviour
             {
                 Ememy ememy = hit.GetComponent<Ememy>();
                 ememy.TakeDamage(100);
+                ememy_ai ememyia = hit.GetComponent<ememy_ai>();
+                ememyia.hitstop();
                 Debug.Log(hit);
             }
         src.clip = sfx1;
