@@ -32,7 +32,6 @@ public class whip_weapon : MonoBehaviour
         {
             ainm.SetFloat("attackcounter",currentattack);
             canattak = false;
-            Debug.Log("nuhuh");
         }
     }
     public void hit1()

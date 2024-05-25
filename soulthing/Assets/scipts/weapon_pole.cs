@@ -27,7 +27,7 @@ public class weapon_pole : MonoBehaviour
         if(Input.GetButtonDown("Fire1") && pull_push())
         {
          rb.AddForce(new Vector2(rb.velocity.x * 5, 10),ForceMode2D.Impulse);
-         ainm.SetFloat("attackcounter", 3.5f);
+         ainm.SetFloat("attackcounter", 4);
          src.clip = sfx1;
          src.Play();
          canattak = false;
