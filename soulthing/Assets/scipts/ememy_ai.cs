@@ -15,6 +15,9 @@ public class ememy_ai : MonoBehaviour
     private bool attacked = false;
     private bool runaway = false;
     private bool hitstopped = false;
+    private bool canhit = true;
+    public Transform attackpoint;
+    public LayerMask player;
     Coroutine enemyAI;
     Coroutine hittest;
     // Start is called before the first frame update
@@ -27,7 +30,7 @@ public class ememy_ai : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(canhit);
       if(!hitstopped)
       {
         player_find();
@@ -58,10 +61,12 @@ public class ememy_ai : MonoBehaviour
                 if(number >= 5)
                 {
                     jumpStrike();
+                    enemyhit();
                 }
                 else
                 {
-                   ramStrike(); 
+                   ramStrike();
+                   enemyhit(); 
                 }
                 
                 attacked = true;
@@ -86,6 +91,7 @@ public class ememy_ai : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         runaway = true;
+        canhit = true;
 
     }
     void moveEmemy(float move)
@@ -114,5 +120,15 @@ public class ememy_ai : MonoBehaviour
     {
         yield return new WaitForSeconds(.2f);
         hitstopped = false;
+    }
+    void enemyhit()
+    {
+        var hit =Physics2D.OverlapBox(attackpoint.position,new Vector2(3,1),0,player);
+            if(hit != null && canhit)
+            {
+                canhit = false;
+                playerhealth player = hit.GetComponent<playerhealth>();
+                player.TakeDamage(50);
+            }
     }
 }
