@@ -1289,7 +1289,6 @@ GameObject:
   - component: {fileID: 1154096989}
   - component: {fileID: 1154096993}
   - component: {fileID: 1154096994}
-  - component: {fileID: 1154096995}
   - component: {fileID: 1154096996}
   - component: {fileID: 1154096997}
   - component: {fileID: 1154096998}
@@ -1492,25 +1491,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1154096995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154096988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a39d5ce6d0c4ebe41843b1115679d95c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  src: {fileID: 1659884330}
-  sfx1: {fileID: 8300000, guid: 3c403b3998e811642ad245ad6f027e3b, type: 3}
-  whip: {fileID: 1789079165}
-  ainm: {fileID: 1154096994}
-  enemy:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &1154096996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,7 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19195cf3c7d2f204987fb941194c2ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whip: {fileID: 1154096995}
+  whip: {fileID: 1154097001}
   lasso: {fileID: 1154096997}
   pole: {fileID: 1154096998}
   sword: {fileID: 1154096999}
@@ -1605,15 +1585,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1154096988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edee8bc172d81c84699d75c61d606f18, type: 3}
+  m_Script: {fileID: 11500000, guid: 9992077d53b4bc14da8596a11f976477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
-  pos: {fileID: 1789079165}
-  size: {x: 1, y: 1}
+  damage: 10
   layer:
     serializedVersion: 2
     m_Bits: 128
+  pos: {fileID: 1789079165}
+  size: {x: 1, y: 1}
+  ainm: {fileID: 1154096994}
+  src: {fileID: 1659884330}
+  sfx1: {fileID: 8300000, guid: 3c403b3998e811642ad245ad6f027e3b, type: 3}
 --- !u!1 &1270555860
 GameObject:
   m_ObjectHideFlags: 0

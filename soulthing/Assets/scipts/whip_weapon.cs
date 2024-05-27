@@ -2,97 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class whip_weapon : MonoBehaviour
+public class whip_weapon : WeaponPerent
 {
-    public AudioSource src;
-    public AudioClip sfx1;
+    public Vector2 size;
     private bool canattak = true;
     private int currentattack = 1;
-    public Transform whip;
     public Animator ainm;
-    public LayerMask enemy;
+    public AudioSource src;
+    public AudioClip sfx1;
     Coroutine combotime;
-
- 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-
         if(!canattak)
         {
             return;
         }
         if(Input.GetButtonDown("Fire1"))
         {
-            ainm.SetFloat("attackcounter",currentattack);
+            boxHit(size);
             canattak = false;
+            src.clip = sfx1;
+            src.Play();
+            StopAllCoroutines();
+            if(currentattack <=3)
+            {
+                ainm.SetFloat("attackcounter",currentattack);
+            }
+            else
+            {
+                currentattack = 1;
+                ainm.SetFloat("attackcounter",currentattack);
+            }
+            combotime = StartCoroutine(combo());
         }
     }
-    public void hit1()
+    IEnumerator combo()
     {
-        var hit =Physics2D.OverlapBox(whip.position,new Vector2(3,0.5f),0,enemy);
-            if(hit != null)
-            {
-                Ememy ememy = hit.GetComponent<Ememy>();
-                ememy.TakeDamage(10);
-                ememy_ai ememyia = hit.GetComponent<ememy_ai>();
-                ememyia.hitstop();
-                Debug.Log(hit);
-            }
-        src.clip = sfx1;
-        src.Play();
-       combotime = StartCoroutine(combo());
-    }
-    public void hit2()
-    {
-        var hit =Physics2D.OverlapBox(whip.position,new Vector2(3,0.5f),0,enemy);
-            if(hit != null)
-            {
-                Ememy ememy = hit.GetComponent<Ememy>();
-                ememy.TakeDamage(0);
-                ememy_ai ememyia = hit.GetComponent<ememy_ai>();
-                ememyia.hitstop();
-                Debug.Log(hit);
-            }
-        src.clip = sfx1;
-        src.Play();
-        StopAllCoroutines();
-        combotime = StartCoroutine(combo());
-    }
-    public void hit3()
-    {
-        var hit =Physics2D.OverlapBox(whip.position,new Vector2(3,0.5f),0,enemy);
-            if(hit != null)
-            {
-                Ememy ememy = hit.GetComponent<Ememy>();
-                ememy.TakeDamage(100);
-                ememy_ai ememyia = hit.GetComponent<ememy_ai>();
-                ememyia.hitstop();
-                Debug.Log(hit);
-            }
-        src.clip = sfx1;
-        src.Play();
-        StopAllCoroutines(); 
-        currentattack = 1;
-    }
-    public void atackfinish()
-    {
+        yield return currentattack = currentattack + 1;
+        yield return new WaitForSeconds(.5f);
+        canattak = true;
         ainm.SetFloat("attackcounter",0);
-        canattak = true;        
+        yield return new WaitForSeconds(1f);
+        yield return currentattack = 1;
     }
-   IEnumerator combo()
-   {
-     yield return currentattack = currentattack + 1;
-     yield return new WaitForSeconds(1.5f);
-     yield return currentattack = 1;
-   }
-
-
-    
 }
