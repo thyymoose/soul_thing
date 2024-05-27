@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813921717}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bc8bc35da7498540af210ab6f9f1929, type: 3}
   m_Name: 
@@ -1295,6 +1295,7 @@ GameObject:
   - component: {fileID: 1154096998}
   - component: {fileID: 1154096999}
   - component: {fileID: 1154097000}
+  - component: {fileID: 1154097001}
   m_Layer: 3
   m_Name: player
   m_TagString: Untagged
@@ -1595,6 +1596,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &1154097001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154096988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edee8bc172d81c84699d75c61d606f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  pos: {fileID: 1789079165}
+  size: {x: 1, y: 1}
+  layer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1270555860
 GameObject:
   m_ObjectHideFlags: 0
