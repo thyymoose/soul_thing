@@ -3721,7 +3721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eba0be39b7428645998e8c9b82cb838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 35
   rb: {fileID: 813921722}
 --- !u!50 &813921722
 Rigidbody2D:
@@ -4169,6 +4169,7 @@ MonoBehaviour:
   lasso: {fileID: 1154096997}
   pole: {fileID: 1154096998}
   sword: {fileID: 1154096999}
+  anim: {fileID: 1154096994}
 --- !u!114 &1154096997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4250,7 +4251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9992077d53b4bc14da8596a11f976477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 12
   layer:
     serializedVersion: 2
     m_Bits: 128

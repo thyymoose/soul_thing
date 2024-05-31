@@ -39,10 +39,10 @@ public class whip_weapon : WeaponPerent
     IEnumerator combo()
     {
         yield return currentattack = currentattack + 1;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.4f);
         canattak = true;
         ainm.SetFloat("attackcounter",0);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         yield return currentattack = 1;
     }
 }
