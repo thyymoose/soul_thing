@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class dog : enemyAIperent
 {
+    private float time;
 
     void Update()
     {
@@ -26,7 +27,7 @@ public class dog : enemyAIperent
             state = currentstate.retreating;
             switchstate();
         }
-        if(playerclose()>attackrange*4)
+        if(playerclose()> attackrange * 2)
         {
             canhit = true;
         }
@@ -39,4 +40,5 @@ public class dog : enemyAIperent
         gettinghit = true;
 
     }
+    
 }

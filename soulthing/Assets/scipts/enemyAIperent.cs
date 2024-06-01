@@ -7,11 +7,13 @@ public class enemyAIperent : MonoBehaviour
     public Transform enemypos;
     public Transform attackpos;
     public Transform playerpos;
+    public Transform groundcheck;
     public currentstate state;
     public float attackrange;
     public float attacksize;
     public float damage;
     public LayerMask player;
+    public LayerMask ground;
     public float speed;
     public Rigidbody2D rb;
     public bool canhit = true;
@@ -38,11 +40,9 @@ public class enemyAIperent : MonoBehaviour
         switch(state)
         {
             case currentstate.walking:
-                Debug.Log("walking");
                 walk();
                 break;
             case currentstate.attacking:
-                Debug.Log("attacking");
                 if(canhit)
                 {
                  attack();
@@ -50,12 +50,13 @@ public class enemyAIperent : MonoBehaviour
                 }
                 break;
             case currentstate.retreating:
-                Debug.Log("retreating");
                 retreat();
                 break;
+            case currentstate.inair:
+                canhit = false;
+                break;
              case currentstate.hitstop:
-                Debug.Log("hit");
-                coroutine = StartCoroutine(hitstop());
+                coroutine = StartCoroutine(hitstop(new Vector2(0,0)));
                 break;
         }
     }
@@ -74,6 +75,7 @@ public class enemyAIperent : MonoBehaviour
          hit.GetComponent<playerhealth>().TakeDamage(damage);
        }
     }
+
     public void retreat()
     {
         var speeddirection = speed * -direction;
@@ -81,17 +83,22 @@ public class enemyAIperent : MonoBehaviour
         var movment = speeddif * 5;
         rb.AddForce(new Vector2(movment, 0));
     }
+    public bool isgrounded()
+    {
+       return Physics2D.OverlapCircle(groundcheck.position,.1f,ground);
+    }
     public enum currentstate
     {
         walking,
         attacking,
         retreating,
-        hitstop 
+        hitstop,
+        inair
     }
-    IEnumerator hitstop()
+    IEnumerator hitstop(Vector2 vec)
     {
-        rb.velocity = new Vector2(0,0);
-        yield return new WaitForSeconds(.2f);
+        rb.velocity = vec;
+        yield return new WaitForSeconds(.3f);
         state = currentstate.walking;
         switchstate();
         gettinghit = false;
