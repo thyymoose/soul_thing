@@ -13,7 +13,7 @@ public class WeaponPerent : MonoBehaviour
         for (int i = 0; i < hit.Length; i++)
         {
             hit[i].GetComponent<Ememy>().TakeDamage(damage);
-            hit[i].GetComponent<ememy_ai>().hitstop();
+            hit[i].GetComponent<dog>().hitstop(); 
         }
     }
     public void sphereHit(float size)
@@ -22,7 +22,15 @@ public class WeaponPerent : MonoBehaviour
         for (int i = 0; i < hit.Length; i++)
         {
             hit[i].GetComponent<Ememy>().TakeDamage(damage);
-            hit[i].GetComponent<ememy_ai>().hitstop();
+            hit[i].GetComponent<dog>().hitstop();
         } 
+    }
+    public void knockback(Vector2 size)
+    {
+        Collider2D[] hit = Physics2D.OverlapBoxAll(pos.position,size,0,layer);
+        for (int i = 0; i < hit.Length; i++)
+        {
+
+        }
     }
 }
