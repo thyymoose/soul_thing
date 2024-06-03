@@ -26,6 +26,7 @@ public class weapon_man : MonoBehaviour
         if(Input.GetButtonDown("1"))
         {
             anim. SetBool("holdingWhip", true); 
+            anim. SetBool("holdingLasso", false); 
             Debug.Log("WHIP");
             sword.enabled = false;
             whip.enabled = true;
@@ -38,6 +39,7 @@ public class weapon_man : MonoBehaviour
         if(Input.GetButtonDown("2"))
         {
             anim. SetBool("holdingWhip", false); 
+            anim. SetBool("holdingLasso", true); 
             Debug.Log("LASSO");
             sword.enabled = false;
             lasso.enabled = true;
@@ -46,7 +48,8 @@ public class weapon_man : MonoBehaviour
         }
         if(Input.GetButtonDown("3"))
         {
-            anim. SetBool("holdingWhip", false); 
+            anim. SetBool("holdingWhip", false);
+            anim. SetBool("holdingLasso", false); 
             Debug.Log("SWORD");
             sword.enabled = true;
             pole.enabled = false;
@@ -59,6 +62,7 @@ public class weapon_man : MonoBehaviour
         if(Input.GetButtonDown("4"))
         {
             anim. SetBool("holdingWhip", false); 
+            anim. SetBool("holdingLasso", false); 
             Debug.Log("POLE");
             sword.enabled = false;
             whip.enabled = false;
